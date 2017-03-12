@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ############################################
-# Free rocketship emulator 
+# Free rocketship simmulator 
 # Bringing you free rocketships since 2017
 ############################################
 
