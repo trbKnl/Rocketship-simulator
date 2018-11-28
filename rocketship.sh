@@ -1,65 +1,58 @@
 #!/bin/bash
 
-############################################
-# Free rocketship simulator 
-# Bringing you free rocketships since 2017
-###########################################
+message=""
+filler="~\n~\n~\n~\n "
+ship="(_)_)::::::D"
+foo="~"
+
+returnMessage() {
+    totalCols=$(tput cols)
+    size=$(($totalCols-${#ship}))
+    #size=30
+    newMessage=$1$2
+    if [ "${#newMessage}" -gt "$size" ]; then
+        newMessage=$(printf "$newMessage" | cut -c1-"$size")
+    fi
+
+    printf "$newMessage"
+} 
 
 
-function chrisMode {
+rocketship() {
+    while true; do
+        for ((x=1; x<=10; x++)) {
+            fuel=$(printf "$filler" | sort -R | head -n 1)
+            message=$(returnMessage "$fuel" "$message")
+            printf "\r$ship$message"
+            sleep 0.01
+        }
 
-tput sgr0
-printf "(_)_):::::::::::D " 
+        for ((i=${#foo}; i>=0; i--)); do
+            message=$(returnMessage "${foo:$i:1}" "$message")
+            printf "\r$ship$message"
+            sleep 0.01
+        done
 
-keypress=''
-while [ "x$keypress" = "x" ]; do		
-			if [[ $* == *-rainbow* ]]; then
-				tput setaf $(( 0 + $RANDOM % 6 )) 
-			fi
-			printf "~"
-		sleep 0.01 
-	 keypress="`cat -v`"
-done
-
-printf "\n"
-
-chrisMode $*
-
+        for ((x=1; x<=10; x++)) {
+            fuel=$(printf "$filler" | sort -R | head -n 1)
+            message=$(returnMessage "$fuel" "$message")
+            printf "\r$ship$message"
+            sleep 0.01
+        }
+    done
 }
 
 
-##engage dangerous chris mode
-if  [[ $* == *-chris* ]]; then
+while [ "$1" != "" ]; do
+    case $1 in
+        -m | --message )        shift
+                                foo=$1
+                                ;;
+        -c | --chris )          ship="(__)__)::::::::::::D"
+    esac
+    shift
+done
 
-	if [ -t 0 ]; then stty -echo -icanon -icrnl time 0 min 0; fi
-
-	chrisMode $*
-
-	if [ -t 0 ]; then stty sane; fi
-
-#normal mode
-else 
-	printf "(_)_)::::D " 
-
-	for((i = 1; i < 31; i++)); do
-		
-		rand=$(( ( RANDOM % 9 )  + 1 ))
-		if [ $rand -gt 2 ]; then 
-			if [[ $* == *-rainbow* ]]; then
-				tput setaf $(( 0 + $RANDOM % 6 )) 
-			fi
-			printf "~"
-		else
-			printf " "
-		fi
-		sleep 0.03s
-	done
-	printf "\n"
-fi
-
-
-
-
-
+rocketship "$foo"
 
 
