@@ -24,20 +24,20 @@ rocketship() {
             fuel=$(printf "$filler" | sort -R | head -n 1)
             message=$(returnMessage "$fuel" "$message")
             printf "\r$ship$message"
-            sleep 0.01
+            sleep 0.03
         }
 
         for ((i=${#foo}; i>=0; i--)); do
             message=$(returnMessage "${foo:$i:1}" "$message")
             printf "\r$ship$message"
-            sleep 0.01
+            sleep 0.03
         done
 
         for ((x=1; x<=10; x++)) {
             fuel=$(printf "$filler" | sort -R | head -n 1)
             message=$(returnMessage "$fuel" "$message")
             printf "\r$ship$message"
-            sleep 0.01
+            sleep 0.03
         }
     done
 }
