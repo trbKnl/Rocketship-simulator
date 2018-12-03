@@ -3,8 +3,9 @@
 original_tty_state=$(stty -g)
 message=""
 filler="~\n~\n~\n~\n "
-ship="(_)_)::::::D"
 foo="~"
+bow="::::::::::::::::::"
+offset=1
 
 returnMessage() {
     totalCols=$(tput cols)
@@ -20,6 +21,8 @@ returnMessage() {
 
 
 rocketship() {
+    shiplength=$(( ( RANDOM % 10 ) + $offset ))
+    ship="(_)_)"$(printf $bow | cut -c 1-"$shiplength")"D"
     keypress=""
     message=""
     while true ; do
@@ -70,7 +73,7 @@ while [ "$1" != "" ]; do
         -m | --message )        shift
                                 foo=$1
                                 ;;
-        -c | --chris )          ship="(__)__)::::::::::::D"
+        -c | --chris )          offset=10
     esac
     shift
 done
