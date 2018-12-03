@@ -1,11 +1,17 @@
 #!/bin/bash
 
 original_tty_state=$(stty -g)
+tput civis
 message=""
 filler="~\n~\n~\n~\n "
 foo="~"
 bow="::::::::::::::::::"
 offset=1
+
+finish() {
+    stty $original_tty_state
+    tput cnorm
+}
 
 returnMessage() {
     totalCols=$(tput cols)
@@ -66,7 +72,7 @@ rocketship() {
 
 }
 
-trap "stty $original_tty_state" EXIT
+trap finish EXIT
 
 while [ "$1" != "" ]; do
     case $1 in
