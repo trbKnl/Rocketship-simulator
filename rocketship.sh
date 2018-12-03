@@ -19,27 +19,47 @@ returnMessage() {
 
 
 rocketship() {
-    while true; do
+    keypress=""
+    message=""
+    while true ; do
+
         for ((x=1; x<=10; x++)) {
+            if [ "x$keypress" != "x" ]; then
+                printf "\n"
+                rocketship "$foo"
+            fi 
             fuel=$(printf "$filler" | sort -R | head -n 1)
             message=$(returnMessage "$fuel" "$message")
             printf "\r$ship$message"
-            sleep 0.03
+            sleep 0.01
+            keypress="`cat -v`"
         }
 
         for ((i=${#foo}; i>=0; i--)); do
+            if [ "x$keypress" != "x" ]; then
+                printf "\n"
+                rocketship "$foo"
+            fi 
             message=$(returnMessage "${foo:$i:1}" "$message")
             printf "\r$ship$message"
-            sleep 0.03
+            sleep 0.01
+            keypress="`cat -v`"
         done
 
         for ((x=1; x<=10; x++)) {
+            if [ "x$keypress" != "x" ]; then
+                printf "\n"
+                rocketship "$foo"
+            fi 
             fuel=$(printf "$filler" | sort -R | head -n 1)
             message=$(returnMessage "$fuel" "$message")
             printf "\r$ship$message"
-            sleep 0.03
+            sleep 0.01
+
+            keypress="`cat -v`"
         }
     done
+
 }
 
 
@@ -53,6 +73,15 @@ while [ "$1" != "" ]; do
     shift
 done
 
-rocketship "$foo"
+
+if [ -t 0 ]; then stty -echo -icanon -icrnl time 0 min 0; fi
+
+    rocketship "$foo"
+
+#if [ -t 0 ]; then stty sane; fi
+
+
+
+
 
 
