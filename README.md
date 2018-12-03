@@ -6,7 +6,7 @@ It's so much fun! It really is.
 ### Usage
 rocketship.sh -m "Hi Boss! I am getting a cup of coffee!"
 
-<img src="./demo.gif" width="60%">
+<img src="./demo.gif" width="90%">
 
 The Rocketship flies through space! Leaving nothing but fuel and galaxies behind!
 
