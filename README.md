@@ -5,13 +5,11 @@ It's so much fun! It really is.
 
 Usage:
 rocketship.sh -m "Hi Boss! I am getting a cup of coffee!"
+
 ![](./demo.gif)
+
+The Rocketship flies through space! Leaving nothing but fuel and galaxies behind!
 
 ## Currently available options:
 - --chris | - c, to engage Chris mode
 - --message | -m, to add a custom message! For instance to let the boss know that you are afk
-
-## Normal mode demo
-( _) _)::::::D ~~~~ ~~ ~ ~~~~~ ~~~ ~~~~ ~~~ 
-
-The Rocketship flies through space! Leaving nothing but fuel and galaxies behind!
