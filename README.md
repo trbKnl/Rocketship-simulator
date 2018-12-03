@@ -9,7 +9,8 @@ rocketship.sh -m "Hi Boss! I am getting a cup of coffee!"
 <img src="./demo.gif" width="60%">
 
 The Rocketship flies through space! Leaving nothing but fuel and galaxies behind!
-(_)_):::::D ~~~ ~ ~~ ~~~
+
+( _) _)::::::D ~~~~ ~~ ~ ~~~~~ ~~~ ~~~~ ~~~ 
 
 ### Currently available options:
 - --chris | - c, to engage Chris mode
