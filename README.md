@@ -5,7 +5,7 @@ It's so much fun! It really is.
 
 Usage:
 rocketship.sh -m "Hi Boss! I am getting a cup of coffee!"
-![](./demo.gif =535x)
+![](./demo.gif)
 
 ## Currently available options:
 - --chris | - c, to engage Chris mode
