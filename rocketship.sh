@@ -1,5 +1,6 @@
 #!/bin/bash
 
+original_tty_state=$(stty -g)
 message=""
 filler="~\n~\n~\n~\n "
 ship="(_)_)::::::D"
@@ -62,6 +63,7 @@ rocketship() {
 
 }
 
+trap "stty $original_tty_state" EXIT
 
 while [ "$1" != "" ]; do
     case $1 in
@@ -76,10 +78,7 @@ done
 
 if [ -t 0 ]; then stty -echo -icanon -icrnl time 0 min 0; fi
 
-    rocketship "$foo"
-
-#if [ -t 0 ]; then stty sane; fi
-
+rocketship "$foo"
 
 
 
