@@ -90,6 +90,6 @@ if [ -t 0 ]; then stty -echo -icanon -icrnl time 0 min 0; fi
 rocketship "$foo"
 
 
-
-
+#Hoi olmo
+#nog iets
 
